@@ -13,6 +13,7 @@ public class JDBCtest {
 
             Person person1= new Person(1,"Briana");
             Person person2 = new Person(2,"Nema");
+            Person person3 = new Person(3, "Bini");
 
             //OUR SQL statement that we need to modify into a prepared statement
             //It takes 2 parameters that we represent with "?"
@@ -29,6 +30,12 @@ public class JDBCtest {
             insertStmt.setString(2, person2.getName());
 
             //Execute our statement for the second created user
+            insertStmt.executeUpdate();
+
+            insertStmt.setInt(1, person3.getId());
+            insertStmt.setString(2, person3.getName());
+
+            //Execute our statement for the third created user
             insertStmt.executeUpdate();
 
             String query = "SELECT * FROM users";
